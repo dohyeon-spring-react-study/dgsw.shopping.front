@@ -21,7 +21,9 @@ class Login extends Component {
     }
 
     handleClick = (e) => {
-        this.props.stores.UserStore.findUser(this.state);
+        let p = this.props.stores.UserStore.findUser(this.state);
+        if(p !== null)
+            this.props.history.push('/main');
     }
 
     render() {

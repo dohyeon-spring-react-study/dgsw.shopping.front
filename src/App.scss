@@ -1,18 +1,34 @@
 .app-header{
-  position : fixed;
-  right: 0;
-  height: 100px;
+  height : 50px;
+  text-align: right;
+  margin-right: 40px;
+}
 
-  .menubar{
-    list-style-type: none;
-    padding-right: 30px;
-    li{
-      float:left;
-    }
+.menubar{
+  list-style-type: none;
+  display: inline-block;
+  zoom: 1;
+  li{
+    float:left;
+    margin-left: 20px;
+    z-index:1;
+  }
+}
+
+.menuitem{
+  text-align: center;
+  padding-top: 20px;
+  li{
+    display:inline;
+    padding-left: 100px;
   }
 }
 
 .app-body{
-  position: absolute;
-  top: 100px;
+  top: 0px;
+}
+
+footer{
+  bottom : 0px;
+  text-align: center;
 }

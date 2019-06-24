@@ -1,0 +1,121 @@
+.topHeader{
+  margin-top: 10px;
+  padding-top: 40px;
+  text-align: center;
+  padding-bottom: 40px;
+
+  border: 0.5px solid black;
+}
+
+.main-container{
+  position: relative;
+  display: flex;
+  .leftitem{
+    display : flex;
+    flex: 1;
+    flex-flow: wrap;
+
+    .left-content{
+      text-align: center;
+      width: 100%;
+      .content-header{
+        border: 0.5px solid black;
+      }
+      .content-picture{
+        display:inline-block;
+        width: 40.4%;
+        border: 0.5px solid black;
+      }
+      .content-main {
+        width: 59%;
+        display: inline-block;
+        border: 0.5px solid black;
+      }
+    }
+
+  }
+
+  .mainitem{
+    position: relative;
+    display: flex;
+    width: 1200px;
+    flex-flow: wrap;
+
+    .center-content{
+      text-align: center;
+      width: 100%;
+      .content-header{
+        border: 0.5px solid black;
+      }
+
+      .content-block{
+        margin : 10px;
+        padding-left: 200px;
+        float: left;
+        .content-picture{
+          width: 100%;
+          border: 0.5px solid black;
+        }
+        .content-main {
+          width: 100%;
+          border: 0.5px solid black;
+        }
+      }
+
+      .content-recblock{
+        margin : 10px;
+        padding-left: 300px;
+        float: left;
+        .content-picture{
+          width: 100%;
+          border: 0.5px solid black;
+        }
+        .content-main {
+          width: 100%;
+          border: 0.5px solid black;
+        }
+      }
+
+      .content-popublock{
+        margin : 10px;
+        padding-left: 135px;
+        float: left;
+        .content-picture{
+          width: 100%;
+          border: 0.5px solid black;
+        }
+        .content-main {
+          width: 100%;
+          border: 0.5px solid black;
+        }
+      }
+
+      .content-specialblock{
+        margin : 10px;
+        .content-picture{
+          width: 10%;
+          display: inline-block;
+          border: 0.5px solid black;
+        }
+        .content-main {
+          width: 89%;
+          display: inline-block;
+          border: 0.5px solid black;
+        }
+      }
+
+    }
+  }
+
+  .rightitem{
+    display : flex;
+    flex: 1;
+    flex-flow: wrap;
+
+    .advertisement{
+      width: 100%;
+      height: 25%;
+      border: 0.5px solid black;
+    }
+  }
+}
