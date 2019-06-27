@@ -1,0 +1,34 @@
+.topHeader{
+  margin-top: 10px;
+  padding-top: 40px;
+  text-align: center;
+  padding-bottom: 40px;
+
+  border: 0.5px solid black;
+}
+
+.maintext{
+  text-align: center;
+}
+
+.ddiv{
+  display: table;
+  width: 100%;
+  text-align: center;
+  .ddiv-head{
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+  }
+  > div{
+    display:table-cell;
+    border-left: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+    width: 20%;
+    margin : auto;
+  }
+}
+
+.btnlist{
+  width: 20%;
+  margin: 0 auto;
+}

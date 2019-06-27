@@ -51,6 +51,7 @@ class UserStore{
             if(response.status === 200 && response.data !== ""){
                 console.log(response.data);
                 alert(response.data.name + '님 환영합니다.');
+                localStorage.setItem('userId', response.data.id);
                 this.useritem = response.data;
             }
             else{

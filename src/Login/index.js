@@ -20,6 +20,11 @@ class Login extends Component {
         });
     }
 
+    registerClick = (e) => {
+        window.location.href = '/register';
+    }
+
+
     handleClick = (e) => {
         let p = this.props.stores.UserStore.findUser(this.state);
         if(p !== null)
@@ -29,9 +34,10 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h1>로그인(테스팅)</h1>
-                희망아이디: <input type="text" name="account" value={this.state.account} onChange={this.handlechange} /><br/><br />
-                희망패스워드: <input type="password" name="password" value={this.state.password} onChange={this.handlechange} /><br/><br />
+                <h1>로그인</h1>
+                아이디: <input type="text" name="account" value={this.state.account} onChange={this.handlechange} /><br/><br />
+                패스워드: <input type="password" name="password" value={this.state.password} onChange={this.handlechange} /><br/><br />
+                <button onClick={this.registerClick}>회원가입</button>
                 <button onClick={this.handleClick}>로그인</button>
             </div>
         );

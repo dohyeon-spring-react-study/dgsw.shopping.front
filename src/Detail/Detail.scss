@@ -1,0 +1,43 @@
+.topHeader{
+  margin-top: 10px;
+  padding-top: 40px;
+  text-align: center;
+  padding-bottom: 40px;
+
+  border: 0.5px solid black;
+}
+
+img{
+  margin : 20px;
+  width : 500px;
+  height : 400px;
+}
+
+.detail-container{
+  text-align: center;
+  .header{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    border: 0.5px solid black;
+  }
+  .content{
+    border: 0.5px solid black;
+  }
+}
+
+.ddiv{
+  display: table;
+  width: 100%;
+  .ddiv-head{
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+  }
+  > div{
+    display:table-cell;
+    border-left: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+    width: 33%;
+    margin : auto;
+  }
+}
