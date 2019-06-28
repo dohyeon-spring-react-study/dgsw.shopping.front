@@ -14,7 +14,8 @@ const App = () => (
     <Provider stores={Stores}>
         <BrowserRouter>
             <section className='app-body'>
-                <Route path="/register" exact component={Register} />
+                <Route path="/" exact component={Register} />
+                <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
                 <Route path="/main" component={Main} />
                 <Route path="/category/:categoryid" render={(props) => <Category {...props} />} />

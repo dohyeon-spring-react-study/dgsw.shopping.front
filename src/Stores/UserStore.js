@@ -52,6 +52,7 @@ class UserStore{
                 console.log(response.data);
                 alert(response.data.name + '님 환영합니다.');
                 localStorage.setItem('userId', response.data.id);
+                localStorage.setItem('useraccount', response.data.account);
                 this.useritem = response.data;
             }
             else{

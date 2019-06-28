@@ -13,6 +13,15 @@ class Index extends Component {
         this.props.stores.BasketStore.findBasket(this.props.match.params.userId);
     }
 
+
+    setOrder = () => {
+        this.props.stores.BasketStore.deleteAll(localStorage.getItem('userId'));
+    }
+
+    setRefresh = () => {
+        window.location.reload();
+    }
+
     render() {
         let link = '/basket/' + localStorage.getItem('userId');
         let b = this.props.stores.BasketStore;
@@ -61,10 +70,9 @@ class Index extends Component {
                 {b.basketitem && <BasketList items={b.basketitem}/>}
                 <br />
                 <div className='btnlist'>
-                    <button>주문하기</button>
-                    <button>쇼핑하기</button>
-                    <button>다시 계산하기</button>
-                    <button>삭제하기</button>
+                    <button onClick={this.setOrder}>주문하기</button>
+                    <Link to="/main"><button>쇼핑하기</button></Link>
+                    <button onClick={this.setRefresh}>다시 계산하기</button>
                 </div>
             </div>
         );

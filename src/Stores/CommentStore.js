@@ -34,6 +34,30 @@ class CommentStore {
         }
     }
 
+    @action addComment = async(productId, useraccount, content) =>{
+        try{
+            let response = await axios({
+                url: `http://localhost:8080/api/comment/addcomment`,
+                method:'post',
+                data : {
+                    productId : productId,
+                    useraccount : useraccount,
+                    content : content
+                },
+                timeout: 3000
+            });
+            if(response.status === 200){
+                alert('상품 평이 등록되었습니다.');
+                window.location.reload();
+            }
+            else{
+                this.comment = null;
+            }
+        }catch(e){
+            console.log(e.response);
+        }
+    }
+
 }
 
 export default CommentStore.getInstance();

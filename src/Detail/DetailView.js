@@ -10,7 +10,8 @@ import {inject, observer} from "mobx-react";
 class DetailView extends Component {
 
 
-    componentDidUpdate(prevProps) {
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        if(nextState.comment !== this.state.comment) return;
         window.location.reload();
     }
 
@@ -21,8 +22,9 @@ class DetailView extends Component {
     state = {
         userId : localStorage.getItem('userId'),
         productname : this.props.items.name,
-        price : this.props.items.price,
-        count : 0
+        price : this.props.items.sellprice,
+        count : 0,
+        comment : ''
     };
 
     handleChange = (e) => {
@@ -44,6 +46,18 @@ class DetailView extends Component {
         }
         this.props.stores.BasketStore.addBasket(this.state);
     }
+
+    changeComment = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+
+    addcomment = () =>{
+        alert(localStorage.getItem('useraccount'));
+        this.props.stores.CommentStore.addComment(this.props.items.id, localStorage.getItem('useraccount'), this.state.comment);
+    }
+
 
     render() {
         let c = this.props.stores.CommentStore;
@@ -104,6 +118,11 @@ class DetailView extends Component {
                         ※ 고객의 상품평은 추후 쇼핑몰의 제품선정에 중요한 역할을 합니다.<br/>
                         ※ 쇼핑몰의 더 나은 상품선정과 고객 분들의 쇼핑문화의 질을 높이 고자 좋은 평은<br/>
                         매월 심사 후 쇼핑몰 메인에 올려드리고 선물을 증정하고 있습니다.<br/>
+                        <br />
+                        <div>
+                            상품 평 : <input name="comment" value={this.state.comment} className='inputText' type="text" onChange={this.changeComment} />
+                            <button onClick={this.addcomment}>등록하기</button>
+                        </div>
                         <br />
                         <div className="ddiv">
                             <div className='ddiv-head'>
