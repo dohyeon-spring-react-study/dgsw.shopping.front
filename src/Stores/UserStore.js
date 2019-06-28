@@ -54,6 +54,7 @@ class UserStore{
                 localStorage.setItem('userId', response.data.id);
                 localStorage.setItem('useraccount', response.data.account);
                 this.useritem = response.data;
+                window.location.href="/main";
             }
             else{
                 alert('아이디나 비밀번호가 일치하지 않습니다.');

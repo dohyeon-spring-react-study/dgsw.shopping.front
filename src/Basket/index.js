@@ -15,10 +15,18 @@ class Index extends Component {
 
 
     setOrder = () => {
+        if(this.props.stores.BasketStore.basketitem.length === 0){
+            alert('장바구니에 들어 있는 상품이 없습니다.');
+            return;
+        }
         this.props.stores.BasketStore.deleteAll(localStorage.getItem('userId'));
     }
 
     setRefresh = () => {
+        if(this.props.stores.BasketStore.basketitem.length === 0){
+            alert('장바구니에 들어 있는 상품이 없습니다.');
+            return;
+        }
         window.location.reload();
     }
 

@@ -12,6 +12,7 @@ class DetailView extends Component {
 
     componentWillUpdate(nextProps, nextState, nextContext) {
         if(nextState.comment !== this.state.comment) return;
+        if(nextState.count !== this.state.count) return;
         window.location.reload();
     }
 
@@ -54,7 +55,6 @@ class DetailView extends Component {
     }
 
     addcomment = () =>{
-        alert(localStorage.getItem('useraccount'));
         this.props.stores.CommentStore.addComment(this.props.items.id, localStorage.getItem('useraccount'), this.state.comment);
     }
 

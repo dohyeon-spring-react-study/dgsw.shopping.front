@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
+import {BrowserRouter, Link} from "react-router-dom";
 
 @inject('stores')
 @observer
@@ -57,7 +58,7 @@ class Index extends Component {
                     회원약관에 <input name="agree" type="radio" />동의 함 <input name="agree" type="radio" />동의 안함
                 </div>
                 <button onClick={this.handleClick}>확인</button>
-                <button>취소</button>
+                <Link to="/login"><button>취소</button></Link>
             </div>
         );
     }
