@@ -21,6 +21,17 @@ class Index extends Component {
         };
     }
 
+    isClick = false;
+
+    checkID =() =>{
+        if(this.state.account === ''){
+            alert('아이디를 입력해 주세요.');
+            return;
+        }
+        this.props.stores.UserStore.duplicateID(this.state.account);
+        this.isClick = true;
+    }
+
     handlechange = (e) => {
         this.setState({
             [e.target.name] : e.target.value
@@ -28,8 +39,11 @@ class Index extends Component {
     }
 
     handleClick = (e) => {
+        if(!this.isClick){
+            alert('중복체크를 해 주세요.');
+            return;
+        }
         this.props.stores.UserStore.addUser(this.state);
-        this.props.history.push('/login');
     }
 
     render() {
@@ -44,7 +58,7 @@ class Index extends Component {
                     </div>
                 <hr />
                 <div>
-                    희망아이디: <input type="text" name="account" value={this.state.account} onChange={this.handlechange} /> <button>중복확인</button><br/><br />
+                    희망아이디: <input type="text" name="account" value={this.state.account} onChange={this.handlechange} /> <button onClick={this.checkID}>중복확인</button><br/><br />
                     희망패스워드: <input type="password" name="password" value={this.state.password} onChange={this.handlechange} /><br/><br />
                     패스워드확인: <input type="password" /><br/><br />
                     성명: <input type="text" name="name" value={this.state.name} onChange={this.handlechange} /><br/><br />
@@ -54,8 +68,8 @@ class Index extends Component {
                     주소<br /><input type="text" name="address" value={this.state.address} onChange={this.handlechange} /><br/><br />
                     이메일주소: <input type="text" name="email" value={this.state.email} onChange={this.handlechange} /><br/><br />
                     회원약관<br />
-                    <textarea>테스트테스트테스트</textarea><br/><br />
-                    회원약관에 <input name="agree" type="radio" />동의 함 <input name="agree" type="radio" />동의 안함
+                    <textarea disabled>테스트테스트테스트</textarea><br/><br />
+                    회원약관에 <input name="agree" type="radio"  />동의 함 <input name="agree" type="radio" />동의 안함
                 </div>
                 <button onClick={this.handleClick}>확인</button>
                 <Link to="/login"><button>취소</button></Link>

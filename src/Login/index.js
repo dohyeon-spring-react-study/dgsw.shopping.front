@@ -6,6 +6,11 @@ import {inject, observer} from "mobx-react";
 @observer
 class Login extends Component {
 
+
+    componentDidMount() {
+        localStorage.clear();
+    }
+
     constructor(props){
         super(props);
         this.state = {

@@ -15,6 +15,10 @@ class UserStore{
 
 
     @action addUser = async (value) => {
+        if(this.findID !== null){
+            alert('중복체크를 해 주세요.');
+            return;
+        }
         try{
             let response = await axios({
                 url:`http://localhost:8080/api/user/adduser`,
@@ -27,6 +31,10 @@ class UserStore{
             });
             if(response.status === 200){
                 alert('회원가입이 완료되었습니다.');
+                window.location.href = '/login';
+            }
+            else{
+                alert('공백이 존재합니다.');
             }
         }catch(e){
             console.log(e.response);
@@ -62,6 +70,30 @@ class UserStore{
             }
         }catch(e){
             console.log(e.response);
+        }
+    }
+
+    @observable findID = null;
+    @action duplicateID = async (value) => {
+        try{
+            let response = await axios({
+                url: `http://localhost:8080/api/user/findaccount/${value}`,
+                headers:{
+                    'Content-Type': 'application/json; charset=UTF-8'
+                },
+                method : 'get',
+                timeout: 3000
+            });
+            if(response.status === 200 && response.data.account !== ""){
+                this.findID = response.data;
+                alert('중복된 아이디입니다.');
+            }
+            else{
+                this.findID = null;
+                alert('사용 가능한 아이디입니다.');
+            }
+        }catch(e){
+            console.log(e);
         }
     }
 }
